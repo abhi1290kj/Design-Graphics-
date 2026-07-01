@@ -404,7 +404,7 @@
   </div>
 
   <header>
-    <div class="ai-badge"><i class="fas fa-robot"></i> Google Gemini AI Live Powered</div>
+    <div class="ai-badge"><i class="fas fa-robot"></i> DesignBot Smart AI Live</div>
     <h1>🎨 Design Graphics</h1>
     <p>Future-Gen Creative Hub – <span class="typing-text" id="typing-hook"></span></p>
     <p style="margin-top: 10px;"><strong>OWNER:</strong> Abhishek Dubey</p>
@@ -495,11 +495,10 @@
     </div>
   </section>
   
-  <!-- Portfolio (Full Images Support) -->
+  <!-- Portfolio -->
   <section id="portfolio">
     <h2>📸 Portfolio</h2>
     <div class="portfolio-grid">
-      <!-- Aap yahan apni images ka direct storage path ya online link paste kar sakte hain -->
       <div class="portfolio-card" data-aos="flip-left">
         <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?q=80&w=500" alt="Graphic Design Artwork">
       </div>
@@ -515,16 +514,11 @@
     </div>
   </section>
 
-
-  <!-- Pure HTML Contact Form with JavaScript Validation -->
+  <!-- Contact Form -->
   <section id="contact">
     <h2>📞 Contact Us</h2>
-    <!-- ⚠️ यहाँ YOUR_OWNER_EMAIL@GMAIL.COM की जगह अपना असली ईमेल डालें -->
     <form class="contact-form" id="pureHtmlForm" action="https://formsubmit.co/abhishek21dubeyji@gmail.com" method="POST" data-aos="fade-up">
-      
-      <!-- Redirects back to website after email submission -->
       <input type="hidden" name="_next" value="https://designgraphics.in">
-      <!-- Custom JS Captcha यूज़ करने की वजह से FormSubmit का डिफॉल्ट कैप्चा ऑफ कर रहे हैं -->
       <input type="hidden" name="_captcha" value="false">
 
       <input type="text" name="name" id="formName" placeholder="Your Name" required>
@@ -542,7 +536,7 @@
     </form>
   </section>
 
-  <!-- WORKING GOOGLE AI INTERACTIVE POPUP WINDOW -->
+  <!-- SMART LOCAL CHATBOT POPUP WINDOW -->
   <div class="ai-bot-container">
     <div class="ai-popup" id="aiPopup" style="display: none;">
       <div class="ai-popup-header">
@@ -550,11 +544,11 @@
         <span style="cursor:pointer; font-size: 20px;" onclick="toggleAiPopup()">×</span>
       </div>
       <div class="ai-chat-messages" id="chatFlow">
-        <div class="msg bot">Hello! Main Abhishek Dubey ka AI assistant hoon. Aap mujhse Design Graphics ke services aur pricing ke baare mein kuch bhi puch sakte hain!</div>
+        <div class="msg bot">Hello! Main Abhishek Dubey ka AI assistant hoon. Aap mujhse Design Graphics ke services aur pricing ke baare mein kuch bhi puch sakte hain! 😊</div>
         <div class="typing-indicator" id="typingIndicator">DesignBot soch raha hai...</div>
       </div>
       <div class="ai-chat-input-area">
-        <input type="text" id="userInput" placeholder="Ask anything..." onkeypress="handleKeyPress(event)">
+        <input type="text" id="userInput" placeholder="Type price, logo, video, offer..." onkeypress="handleKeyPress(event)">
         <button onclick="sendUiMessage()"><i class="fas fa-paper-plane"></i></button>
       </div>
     </div>
@@ -604,23 +598,19 @@
   <script>
     AOS.init({ duration: 800, once: true });
 
-    // Global Captcha Variable
     let currentCaptchaCode = "";
 
-    // Generate Captcha Code
     function generateHtmlCaptcha() {
         currentCaptchaCode = Math.floor(1000 + Math.random() * 9000).toString();
         document.getElementById('htmlCaptchaBox').innerText = currentCaptchaCode;
     }
 
-    // Preloader & Init
     window.addEventListener('load', () => {
       const preloader = document.getElementById('preloader');
       preloader.style.transition = 'opacity 0.5s ease';
       preloader.style.opacity = 0;
       setTimeout(() => preloader.style.display = 'none', 500);
       
-      // कैप्टचा कोड बनाएं
       generateHtmlCaptcha();
 
       setTimeout(() => {
@@ -633,54 +623,26 @@
       popup.style.display = (popup.style.display === 'flex' || popup.style.display === '') ? 'none' : 'flex';
     }
 
-    // Pure HTML Form Validation and Submission handling via JS
     document.getElementById('pureHtmlForm').addEventListener('submit', function(e) {
         const responseDiv = document.getElementById('formResponse');
         const userInput = document.getElementById('formCaptchaInput').value.trim();
         
         if (userInput !== currentCaptchaCode) {
-            e.preventDefault(); // फॉर्म को रुकने के लिए (ईमेल पर न जाए)
+            e.preventDefault();
             responseDiv.innerHTML = '<span style="color: #ff0033;">CAPTCHA galat hai! Dobara koshish karein.</span>';
-            generateHtmlCaptcha(); // रिफ्रेश कैप्टचा
+            generateHtmlCaptcha();
             document.getElementById('formCaptchaInput').value = "";
         } else {
-            // अगर कैप्टचा सही है तो फॉर्म नॉर्मली सबमिट होकर Formsubmit.co पर चला जाएगा
             responseDiv.innerHTML = '<span style="color: #25D366;">CAPTCHA Verified! Sending message...</span>';
         }
     });
 
     // ==========================================
-    // REAL GOOGLE GEMINI AI CONFIGURATION ENGINE
+    // CLIENT-SIDE SMART SMART RESPONSE ENGINE (NO API KEY REQUIRED)
     // ==========================================
-    const GEMINI_API_KEY = "AQ.Ab8RN6JbjyIHOOjcX5aMo7UTR3wec69clcyVDcVaedf5SjpChw"; 
-
-    const systemInstruction = `
-      You are "DesignBot", a professional smart sales AI chat agent for "Design Graphics", owned by Abhishek Dubey. 
-      Your purpose is to welcome clients, pitch graphic and video editing services, and guide them to order via WhatsApp link (https://wa.me/919335830569).
-      
-      Always answer in a friendly, professional mix of Hindi and English (Hinglish). Keep responses concise (under 2-3 sentences).
-      
-      Our Official Rate List:
-      - 2D Logo Design: ₹199
-      - 3D Logo Design: ₹299
-      - Instagram Posters: ₹149
-      - Banner Design: ₹249
-      - Business Card Design: ₹199
-      - YouTube Video Editing: ₹500
-      - Reels / TikTok Editing: ₹400
-      - Wedding Highlights: ₹1500
-      - Corporate Promo: ₹1200
-      - Color Grading: ₹699
-
-      Offers: Basic Edit ₹199, Standard ₹499, Premium ₹999, Combo Editing ₹2199.
-      If someone asks out-of-context general queries, gently bring them back to ordering graphics/video services. Always include the WhatsApp order call-to-action if they express interest.
-    `;
-
-    let chatHistory = [];
-
-    async function sendUiMessage() {
+    function sendUiMessage() {
       const inputEl = document.getElementById('userInput');
-      const text = inputEl.value.trim();
+      const text = inputEl.value.trim().toLowerCase();
       if(!text) return;
 
       inputEl.value = '';
@@ -691,32 +653,26 @@
       const flow = document.getElementById('chatFlow');
       flow.scrollTop = flow.scrollHeight;
 
-      chatHistory.push({ role: 'user', parts: [{ text: text }] });
-
-      try {
-        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            contents: chatHistory,
-            systemInstruction: { parts: [{ text: systemInstruction }] }
-          })
-        });
-
-        const data = await response.json();
+      setTimeout(() => {
         indicator.style.display = 'none';
+        let botResponse = "Mujhe samajh nahi aaya. Aap Logo, Video Editing, Pricing, ya Offers ke baare mein pooch sakte hain! Ya direct WhatsApp par deal fix karein: https://wa.me/919335830569";
 
-        if(data.candidates && data.candidates[0].content.parts[0].text) {
-          const reply = data.candidates[0].content.parts[0].text;
-          appendMessage(reply, 'bot');
-          chatHistory.push({ role: 'model', parts: [{ text: reply }] });
-        } else {
-          appendMessage("Sorry, network issues ki wajah se connection drop hua. Dobara try kijiye ya direct WhatsApp kijiye!", 'bot');
+        if (text.includes('logo')) {
+          botResponse = "Hamare paas 2D Logo (₹199) aur 3D Logo (₹299) services hain. Dono hi premium quality ke hain! Order ke liye WhatsApp karein: https://wa.me/919335830569";
+        } else if (text.includes('video') || text.includes('editing') || text.includes('reel') || text.includes('youtube')) {
+          botResponse = "Video Editing Rate List:\n- YouTube Editing: ₹500\n- Reels/TikTok: ₹400\n- Wedding Highlights: ₹1500\n- Corporate Promo: ₹1200\nDirect WhatsApp par order dein: https://wa.me/919335830569";
+        } else if (text.includes('price') || text.includes('rate') || text.includes('paisa') || text.includes('cost')) {
+          botResponse = "Graphics start hota hai ₹149 (Posters) se aur Video Editing start hota hai ₹400 (Reels) se. Details ke liye chat par list dekhein ya WhatsApp karein: https://wa.me/919335830569";
+        } else if (text.includes('offer') || text.includes('discount') || text.includes('combo')) {
+          botResponse = "🔥 Top Offers: Basic Edit ₹199, Standard ₹499, Premium ₹999, aur Combo Video Editing sirf ₹2199 mein! Abhi book karein: https://wa.me/919335830569";
+        } else if (text.includes('hi') || text.includes('hello') || text.includes('hey')) {
+          botResponse = "Hello! Design Graphics Hub mein aapka swagat hai. Main aapki design ya video project mein kya help karoon?";
+        } else if (text.includes('owner') || text.includes('abhishek')) {
+          botResponse = "Design Graphics ke owner Abhishek Dubey hain. Unse direct contact karne ke liye WhatsApp link par click karein: https://wa.me/919335830569";
         }
-      } catch(err) {
-        indicator.style.display = 'none';
-        appendMessage("System breakdown! Ek baar network check karein.", 'bot');
-      }
+
+        appendMessage(botResponse, 'bot');
+      }, 1000);
     }
 
     function appendMessage(text, sender) {
