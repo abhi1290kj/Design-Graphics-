@@ -103,92 +103,66 @@
     }
     @keyframes blink { from, to { border-color: transparent } 50% { border-color: #00f0ff; } }
 
-    /* मुख्य नेविगेशन बार */
-nav {
-    background: #000000;
+/* नेविगेशन बार को हर हाल में एक ही लाइन में रखने के लिए */
+.main-navbar {
     display: flex;
-    justify-content: space-around;
-    align-items: center; /* आइटम्स को वर्टिकली सेंटर में रखने के लिए */
-    padding: 14px 0;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.7);
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
-    flex-wrap: wrap; /* मोबाइल पर आटोमेटिक नीचे की लाइन में फिट होने के लिए */
+    justify-content: space-around; /* सभी ऑप्शन्स के बीच बराबर जगह */
+    align-items: center;
+    background-color: #333;
+    padding: 10px;
+    flex-wrap: nowrap; /* लाइन को कभी टूटने नहीं देगा */
+    overflow-x: auto;  /* बहुत ज्यादा छोटी स्क्रीन पर साइड स्क्रॉल देगा, पर लाइन एक ही रहेगी */
 }
 
-/* नेविगेशन के लिंक्स */
-nav a, .dropbtn {
-    color: #fff;
+/* सभी बटन और लिंक्स का स्टाइल */
+.main-navbar a, .main-navbar .dropbtn {
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
-    font-weight: 600;
-    font-size: 15px;
-    padding: 6px 14px;
-    border-radius: 6px;
-    transition: 0.3s;
-    display: inline-block;
+    /* रेस्पॉन्सिव फॉन्ट: बड़ी स्क्रीन पर सामान्य और मोबाइल पर अपने आप छोटा (मिनिमम 11px) */
+    font-size: clamp(11px, 2vw, 16px); 
+    white-space: nowrap; /* टेक्स्ट को नीचे की लाइन में जाने से रोकेगा */
 }
 
-nav a:hover, .dropdown:hover .dropbtn {
-    background: #ff0033; /* आपके थीम का रेड कलर */
-    color: #fff;
+.main-navbar a:hover, .main-navbar .dropdown:hover .dropbtn {
+    background-color: #111;
+    border-radius: 4px;
 }
 
-/* ड्रॉपडाउन कंटेनर */
-.dropdown {
+/* ड्रॉपडाउन मेनू का स्टाइल */
+.main-navbar .dropdown {
     position: relative;
     display: inline-block;
 }
 
-/* ड्रॉपडाउन के अंदर की लिंक्स का बॉक्स */
-.dropdown-content {
+.main-navbar .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #111111; /* थोड़ा डार्क ग्रे बैकग्राउंड */
-    min-width: 180px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
-    z-index: 1000;
-    border-radius: 6px;
-    border: 1px solid rgba(255,255,255,0.1);
-    top: 100%; /* ठीक बटन के नीचे दिखाने के लिए */
-    left: 50%;
-    transform: translateX(-50%); /* सेंटर अलाइन करने के लिए */
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0; /* ड्रॉपडाउन को स्क्रीन से बाहर भागने से रोकने के लिए */
 }
 
-/* ड्रॉपडाउन के अंदर के लिंक्स */
-.dropdown-content a {
-    color: #fff;
-    padding: 10px 16px;
+.main-navbar .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
     text-decoration: none;
     display: block;
     text-align: left;
     font-size: 14px;
-    border-radius: 0;
 }
 
-/* ड्रॉपडाउन लिंक्स पर होवर इफ़ेक्ट */
-.dropdown-content a:hover {
-    background-color: #ff0033;
+.main-navbar .dropdown-content a:hover {
+    background-color: #f1f1f1;
 }
 
-/* होवर करने पर ड्रॉपडाउन मेनू को दिखाना */
-.dropdown:hover .dropdown-content {
+.main-navbar .dropdown:hover .dropdown-content {
     display: block;
 }
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      padding: 6px 14px;
-      border-radius: 6px;
-      transition: 0.3s;
-    }
-    nav a:hover {
-      background: #ff0033;
-      box-shadow: 0 0 10px #ff0033;
-    }
 
     section {
       padding: 60px 20px;
@@ -497,9 +471,9 @@ nav a:hover, .dropdown:hover .dropbtn {
     <p>Future-Gen Creative Hub – <span class="typing-text" id="typing-hook"></span></p>
     <p style="margin-top: 10px;"><strong>OWNER:</strong> Abhishek Dubey</p>
   </header>
-<nav>
+<nav class="main-navbar">
     <a href="#graphics">Graphics</a>
-    <a href="#video">Video</a>
+    <a href="#video">Video Edit</a>
     <a href="#offers">Offers</a>
     <a href="#portfolio">Portfolio</a>
     
@@ -820,95 +794,4 @@ nav a:hover, .dropdown:hover .dropbtn {
 
 
 
-
-
-<!DOCTYPE html>
-<html lang="hi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navigation Bar</title>
-    <style>
-        /* नेविगेशन बार को एक लाइन में रखने के लिए CSS */
-        nav {
-            display: flex;
-            justify-content: space-around; /* ऑप्शन्स के बीच बराबर जगह देने के लिए */
-            align-items: center;
-            background-color: #333;
-            padding: 10px;
-            flex-wrap: nowrap; /* यह सुनिश्चित करेगा कि कोड कभी दूसरी लाइन में न जाए */
-            overflow-x: auto;  /* बहुत ज्यादा छोटी स्क्रीन पर स्क्रॉल की सुविधा देगा, लाइन नहीं तोड़ेगा */
-        }
-
-        /* सभी लिंक्स और ड्रॉपडाउन बटन के लिए स्टाइल */
-        nav a, .dropbtn {
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            /* फ्लेक्सिबल फॉन्ट साइज ताकि बड़ी स्क्रीन पर ठीक दिखे और छोटी पर अपने आप छोटा हो जाए */
-            font-size: clamp(12px, 2vw, 16px); 
-            white-space: nowrap; /* टेक्स्ट को टूटने से रोकेगा */
-        }
-
-        nav a:hover, .dropdown:hover .dropbtn {
-            background-color: #111;
-            border-radius: 4px;
-        }
-
-        /* ड्रॉपडाउन का स्टाइल */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            right: 0; /* ड्रॉपडाउन को स्क्रीन से बाहर जाने से रोकने के लिए */
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-            text-align: left;
-            font-size: 14px;
-        }
-
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-    </style>
-</head>
-<body>
-
-<nav>
-    <!-- आपके कहे अनुसार 'Video' को 'Video Edit' कर दिया है -->
-    <a href="#graphics">Graphics</a>
-    <a href="#video">Video Edit</a>
-    <a href="#offers">Offers</a>
-    <a href="#portfolio">Portfolio</a>
-    
-    <span class="dropdown">
-        <a href="javascript:void(0);" class="dropbtn">More ▾</a>
-        <div class="dropdown-content">
-            <a href="#contact">Contact</a>
-            <a href="#help-center">Help Center</a>
-            <a href="#community">Community Guidelines</a>
-        </div>
-    </span>
-</nav>
-
-</body>
-</html>
 
