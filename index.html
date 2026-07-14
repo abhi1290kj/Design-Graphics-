@@ -179,61 +179,69 @@
       color: #ff0033;
       box-shadow: 0 0 15px #fff;
     }
-
-    /* REAL AI CHATBOT SYSTEM STYLES */
-    .ai-bot-container {
-      position: fixed;
-      bottom: 95px;
-      right: 20px;
-      z-index: 1001;
-    }
-    .ai-chat-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    border-radius: 0;
-    overflow: hidden;
-    cursor: pointer;
-    z-index: 9999;
+/* REAL AI CHATBOT SYSTEM STYLES */
+.ai-bot-container {
+  position: fixed;
+  bottom: 95px;
+  right: 20px;
+  z-index: 1001;
 }
-  .ai-chat-btn:hover { transform: scale(1.1); }
-    
-    .ai-popup {
-      display: none;
-      position: absolute;
-      bottom: 65px;
-      right: 0;
-      width: 320px;
-      height: 450px;
-      background: #0f0c23;
-      border: 50% solid #00f0ff;
-      border-radius: 50%;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-    .ai-popup-header {
-      background: linear-gradient(45deg, #16113a, #ff0033);
-      padding: 12px;
-      font-size: 14px;
-      font-weight: bold;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: 'Orbitron', sans-serif;
-    }
-    .ai-chat-messages {
-      flex: 1;
-      padding: 15px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      background: rgba(0,0,0,0.2);
-    }
+
+/* चैट बटन - जो अब चौकोर (Square) दिखेगा */
+.ai-chat-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 0; /* यहाँ 0 रखने से बटन चौकोर रहेगा */
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+.ai-chat-btn:hover { 
+  transform: scale(1.1); 
+}
+
+/* चैट पॉपअप - जिसे मैंने गोल से ठीक करके सुंदर चौकोर/हल्का राउंडेड बना दिया है */
+.ai-popup {
+  display: none;
+  position: absolute;
+  bottom: 65px;
+  right: 0;
+  width: 320px;
+  height: 450px;
+  background: #0f0c23;
+  border: 2px solid #00f0ff; /* 50% हटाकर 2px सुंदर नियॉन बॉर्डर दिया है */
+  border-radius: 12px; /* 50% हटाकर 12px किया ताकि कोने हल्के से स्मूथ रहें, न कि पूरा गोल */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.ai-popup-header {
+  background: linear-gradient(45deg, #16113a, #ff0033);
+  padding: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.ai-chat-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: rgba(0,0,0,0.2);
+}
+
     .msg {
       padding: 8px 12px;
       border-radius: 8px;
