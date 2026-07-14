@@ -582,22 +582,27 @@
   </p>
 
   <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/919335830569" style="
+<a href="https://wa.me/919335830569" style="
     position: fixed;
     bottom: 20px;
     right: 20px;
     background: #25D366;
     color: white;
     height: 56px;
-    width: 56px
+    width: 56px;
     border-radius: 50%;
     font-size: 24px;
     box-shadow: 0 0 15px #25D366;
     z-index: 1000;
     transition: 0.3s;
-  " target="_blank" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+" target="_blank" onmouseover="this.style.transform='scale(1.1)'" onmouseout="this.style.transform='scale(1)'">
     <i class="fab fa-whatsapp"></i>
-  </a>
+</a>
+
 
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
