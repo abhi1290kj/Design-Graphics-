@@ -103,17 +103,80 @@
     }
     @keyframes blink { from, to { border-color: transparent } 50% { border-color: #00f0ff; } }
 
-    nav {
-      background: #000000;
-      display: flex;
-      justify-content: space-around;
-      padding: 14px 0;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.7);
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
+    /* मुख्य नेविगेशन बार */
+nav {
+    background: #000000;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; /* आइटम्स को वर्टिकली सेंटर में रखने के लिए */
+    padding: 14px 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    flex-wrap: wrap; /* मोबाइल पर आटोमेटिक नीचे की लाइन में फिट होने के लिए */
+}
+
+/* नेविगेशन के लिंक्स */
+nav a, .dropbtn {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+nav a:hover, .dropdown:hover .dropbtn {
+    background: #ff0033; /* आपके थीम का रेड कलर */
+    color: #fff;
+}
+
+/* ड्रॉपडाउन कंटेनर */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* ड्रॉपडाउन के अंदर की लिंक्स का बॉक्स */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #111111; /* थोड़ा डार्क ग्रे बैकग्राउंड */
+    min-width: 180px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+    z-index: 1000;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.1);
+    top: 100%; /* ठीक बटन के नीचे दिखाने के लिए */
+    left: 50%;
+    transform: translateX(-50%); /* सेंटर अलाइन करने के लिए */
+}
+
+/* ड्रॉपडाउन के अंदर के लिंक्स */
+.dropdown-content a {
+    color: #fff;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    border-radius: 0;
+}
+
+/* ड्रॉपडाउन लिंक्स पर होवर इफ़ेक्ट */
+.dropdown-content a:hover {
+    background-color: #ff0033;
+}
+
+/* होवर करने पर ड्रॉपडाउन मेनू को दिखाना */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
     nav a {
       color: #fff;
       text-decoration: none;
