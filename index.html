@@ -32,6 +32,15 @@
       color: #fff;
       overflow-x: hidden;
     }
+    
+/* बैनर के लिए सीएसएस कोड */
+.banner img {
+  width: 100%;
+  height: auto;
+  max-height: 250px; /* आप अपनी पसंद के हिसाब से ऊंचाई (height) बदल सकते हैं */
+  object-fit: cover; /* इससे इमेज बिना खिंचे (stretch हुए) सही से फिट होगी */
+  display: block;
+}
 
     /* Preloader */
     #preloader {
@@ -400,13 +409,24 @@
   <div id="preloader">
     <div class="loader"></div>
   </div>
+  
+<!-- Logo Banner Section -->
+<div style="text-align: center;">
+  
+  <!-- 1. ऊपर बैनर आएगा -->
+  <div class="banner" style="width: 100%; margin-bottom: 20px;">
+    <img src="यहाँ_अपने_बैनर_का_यूआरएल_डालें" alt="बैनर" style="width: 100%; height: auto; max-height: 250px; object-fit: cover;">
+  </div>
 
-  <!-- Logo Banner -->
-  <div style="text-align: center; padding: 20px 0;">
+  <!-- 2. नीचे आपका पुराना लोगो आएगा -->
+  <div class="logo">
     <a href="file_00000000ef9c7208a24a6563ae630d69" target="_blank">
       <img src="file_00000000ef9c7208a24a6563ae630d69.png" alt="Pixel Pundi Logo" style="height: 80px; max-width: 90%; object-fit: contain;">
     </a>
   </div>
+
+</div>
+
 
   <header>
     <div class="ai-badge"><i class="fas fa-robot"></i> DesignBot Smart AI Live</div>
