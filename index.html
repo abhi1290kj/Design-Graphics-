@@ -143,7 +143,7 @@
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    right: 0; /* ड्रॉपडाउन को स्क्रीन से बाहर भागने से रोकने के लिए */
+    right: 0; /* अब यह स्क्रीन के बाहर नहीं भागेगा */
 }
 
 .main-navbar .dropdown-content a {
@@ -153,6 +153,11 @@
     display: block;
     text-align: left;
     font-size: 14px;
+}
+
+/* जब ड्रॉपडाउन एक्टिव (ओपन) हो तो उसे दिखाने के लिए */
+.main-navbar .dropdown-content.show {
+    display: block;
 }
 
 .main-navbar .dropdown-content a:hover {
@@ -787,6 +792,27 @@
       setTimeout(typeEffect, speed);
     }
     setTimeout(typeEffect, 1000);
+
+// मान लेते हैं कि आपके 'More' बटन पर class="dropbtn" या id="moreBtn" है
+const moreBtn = document.querySelector('.dropbtn'); 
+const dropdownContent = document.querySelector('.dropdown-content');
+
+if (moreBtn && dropdownContent) {
+    moreBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        // 'show' क्लास को टॉगल करेगा (खुला है तो बंद, बंद है तो चालू)
+        dropdownContent.classList.toggle('show'); 
+    });
+
+    // अगर यूजर ड्रॉपडाउन के बाहर कहीं भी क्लिक करे, तो मेन्यू अपने आप बंद हो जाए
+    window.addEventListener('click', function(e) {
+        if (!moreBtn.contains(e.target) && !dropdownContent.contains(e.target)) {
+            dropdownContent.classList.remove('show');
+        }
+    });
+}
+
+    
   </script>
 
 </body>
